@@ -57,20 +57,28 @@ function ConsultationsChart() {
               yAxisId='right'
               dataKey='expertsOnline'
               name='Experts Online'
-              fill='hsl(var(--accent))'
+              fill='hsl(var(--chart-1))'
               maxBarSize={32}
               radius={[6, 6, 0, 0]}
             />
-            <Line yAxisId='left' type='monotone' dataKey='incoming' name='Incoming' stroke='#8884d8' dot={false} strokeDasharray='5 5' />
+            <Line
+              yAxisId='left'
+              type='monotone'
+              dataKey='incoming'
+              name='Incoming'
+              stroke='hsl(var(--sidebar-background))'
+              dot={false}
+              strokeDasharray='5 5'
+            />
             <Line yAxisId='left' type='monotone' dataKey='answered' name='Answered' stroke='#82ca9d' dot={false} />
           </ComposedChart>
         </ResponsiveContainer>
       </CardContent>
       <CardFooter>
         {[
-          { title: 'Incoming', color: '#8884d8' },
+          { title: 'Incoming', color: 'hsl(var(--sidebar-background))' },
           { title: 'Answered', color: '#82ca9d' },
-          { title: 'Experts online', color: '#ffc658' },
+          { title: 'Experts online', color: 'hsl(var(--chart-1))' },
         ].map(item => (
           <div key={item.title} className='mr-4 flex items-center gap-2 text-xs text-muted-foreground'>
             <div className='h-1 w-4 rounded-sm' style={{ backgroundColor: item.color }}></div>
@@ -103,15 +111,15 @@ function CompareVsPastChart() {
             <XAxis dataKey='period' axisLine={false} tickLine={false} />
             <YAxis axisLine={false} tickLine={false} />
             <Tooltip cursor={{ fill: '#00000000' }} />
-            <Bar dataKey='consultations' fill='hsl(var(--primary))' name='Consultations' maxBarSize={32} radius={[6, 6, 0, 0]} />
+            <Bar dataKey='consultations' fill='hsl(var(--accent))' name='Consultations' maxBarSize={32} radius={[6, 6, 0, 0]} />
             <Bar dataKey='ordersClosed' fill='hsl(var(--sidebar-background))' name='Orders closed' maxBarSize={32} radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>
       <CardFooter>
         {[
-          { title: 'Consultations', color: '#10b981' },
-          { title: 'Orders closed', color: '#064e3b' },
+          { title: 'Consultations', color: 'hsl(var(--accent))' },
+          { title: 'Orders closed', color: 'hsl(var(--sidebar-background))' },
         ].map(item => (
           <div key={item.title} className='mr-4 flex items-center gap-2 text-xs text-muted-foreground'>
             <div className='h-1 w-4 rounded-sm' style={{ backgroundColor: item.color }}></div>

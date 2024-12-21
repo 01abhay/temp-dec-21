@@ -23,13 +23,13 @@ function Navbar() {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className={cn(navigationMenuTriggerStyle() + ' gap-2 rounded-full')} href='#'>
+          <NavigationMenuLink className={cn(navigationMenuTriggerStyle() + ' gap-2 rounded-full text-muted-foreground')} href='#'>
             <TagIcon size={20} />
             <span>Sales</span>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className={cn(navigationMenuTriggerStyle() + ' gap-2 rounded-full')} href='#'>
+          <NavigationMenuLink className={cn(navigationMenuTriggerStyle() + ' gap-2 rounded-full text-muted-foreground')} href='#'>
             <MessageCircle size={20} />
             <span>Chat</span>
           </NavigationMenuLink>
