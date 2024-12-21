@@ -2,6 +2,7 @@ import { Card } from '@/components/ui/card'
 import Section from '@/components/app/Section'
 import Stats from './components/Stats'
 import Charts from './components/Charts'
+import Table from './components/Table'
 
 function HomePage() {
   return (
@@ -12,6 +13,10 @@ function HomePage() {
 
       <Section title='Insights'>
         <Charts />
+      </Section>
+
+      <Section title='Orders'>
+        <Table />
       </Section>
     </Card>
   )
