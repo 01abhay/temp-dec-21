@@ -1,10 +1,6 @@
-import { useState } from 'react'
 import { Link } from 'react-router'
 import {
   ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
   flexRender,
   getCoreRowModel,
   getFacetedRowModel,
@@ -27,23 +23,12 @@ interface DataTableProps<TData, TValue> {
 }
 
 function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
-  const [sorting, setSorting] = useState<SortingState>([])
-
   const table = useReactTable({
     data,
     columns,
-    state: {
+    initialState: {
       pagination: { pageSize: 5, pageIndex: 0 },
-      sorting,
-      columnVisibility,
-      columnFilters,
     },
-    enableRowSelection: true,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    onColumnVisibilityChange: setColumnVisibility,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
