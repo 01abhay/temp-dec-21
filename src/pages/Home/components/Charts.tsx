@@ -1,4 +1,5 @@
 import { Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, ComposedChart, ResponsiveContainer, BarChart } from 'recharts'
+import { getRandomInt } from '@/lib/utils'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChartNoAxesColumn, MessageCircle, TrendingUp } from 'lucide-react'
 
@@ -21,9 +22,6 @@ function Charts() {
 }
 
 export default Charts
-
-// utils
-const getRandomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min
 
 // consultations chart
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']

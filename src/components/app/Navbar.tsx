@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <NavigationMenu className='flex-grow-0'>
       <NavigationMenuList>
-        <NavigationMenuItem className='md:hidden'>
+        <NavigationMenuItem className='mr-6 md:hidden'>
           <SidebarTrigger />
         </NavigationMenuItem>
 
@@ -23,8 +23,8 @@ function Navbar() {
               to={path}
               className={({ isActive }) =>
                 cn(
-                  navigationMenuTriggerStyle({ className: 'h-12 gap-2 rounded-full' }),
-                  isActive ? 'pointer-events-none bg-accent' : 'text-muted-foreground hover:bg-muted',
+                  navigationMenuTriggerStyle({ className: 'h-8 gap-2 rounded-full lg:h-12' }),
+                  isActive ? 'pointer-events-none bg-accent text-accent-foreground' : 'text-muted-foreground hover:bg-muted',
                 )
               }>
               {React.createElement(icon, { size: 18 })}

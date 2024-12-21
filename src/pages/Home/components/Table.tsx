@@ -52,7 +52,7 @@ const products = [
 
 function Table() {
   return (
-    <div className='overflow-hidden rounded-xl border'>
+    <div className='overflow-hidden whitespace-nowrap text-nowrap rounded-xl border'>
       <ShadcnTable>
         <TableHeader className='h-11 bg-muted'>
           <TableRow>

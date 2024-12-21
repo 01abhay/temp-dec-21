@@ -1,35 +1,17 @@
+import { useState } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Send } from 'lucide-react'
+import { LoaderCircle, Send } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import Section from '@/components/app/Section'
 
-const messages = [
-  {
-    id: 1,
-    sender: 'bot',
-    message: 'Hi, how can I help you today?',
-  },
-  {
-    id: 2,
-    sender: 'user',
-    message: "Hey, I'm having trouble with my account.",
-  },
-  {
-    id: 3,
-    sender: 'bot',
-    message: 'What seems to be the problem?',
-  },
-  {
-    id: 4,
-    sender: 'user',
-    message: "I can't log in.",
-  },
-]
+import { sendMessage } from './api'
+
+const initialMessages = [{ id: 1, sender: 'bot', message: 'Hi, how can I help you today?' }]
 
 const formSchema = z.object({
   message: z.string().min(1).max(255),
@@ -40,15 +22,23 @@ function ChatPage() {
     defaultValues: { message: '' },
     resolver: zodResolver(formSchema),
   })
+  const { isValid, isSubmitting } = form.formState
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+  const [messages, setMessages] = useState(initialMessages)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setMessages(messages => [...messages, { id: messages.length + 1, sender: 'user', message: values.message }])
+
+    await sendMessage(values.message).then(resp => {
+      setMessages(messages => [...messages, resp])
+    })
+
+    form.reset()
   }
 
   return (
     <Card className='mx-auto my-9 max-w-[600px]'>
       <Section title='Chat'>
-        <div className='min-h-[60vh] p-6'>
+        <div className='overflow-y-auto p-6' style={{ height: 'calc(100vh - 364px)' }}>
           <div className='space-y-4'>
             {messages.map(message => (
               <div
@@ -64,9 +54,9 @@ function ChatPage() {
         </div>
         <div className='flex items-center p-6 pt-0'>
           <form className='flex w-full items-center space-x-2' onSubmit={form.handleSubmit(onSubmit)}>
-            <Input {...form.register('message')} placeholder='Type your message...' autoComplete='off' />
-            <Button size='icon' type='submit' disabled={form.formState.isSubmitting || !form.formState.isValid}>
-              <Send />
+            <Input {...form.register('message')} placeholder='Type your message...' autoComplete='off' autoFocus disabled={isSubmitting} />
+            <Button size='icon' type='submit' disabled={isSubmitting || !isValid}>
+              {isSubmitting ? <LoaderCircle className='animate-spin' /> : <Send />}
             </Button>
           </form>
         </div>
