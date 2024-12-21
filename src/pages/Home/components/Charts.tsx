@@ -7,7 +7,7 @@ import pulseBg from '@/assets/images/pulse-bg.svg'
 function Charts() {
   return (
     <div className='grid grid-cols-12 gap-6'>
-      <div className='col-span-12 overflow-hidden xl:col-span-6'>
+      <div className='col-span-12 xl:col-span-6'>
         <ConsultationsChart />
       </div>
       <div className='col-span-12 md:col-span-6 xl:col-span-3'>

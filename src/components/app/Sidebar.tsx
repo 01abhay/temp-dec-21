@@ -11,6 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
+import { Separator } from '@/components/ui/separator'
 import { Home, MessageCircle, Settings, Users } from 'lucide-react'
 
 import logo from '@/assets/logo.svg'
@@ -49,7 +50,8 @@ function Sidebar() {
           <img className='h-8 w-8' src={logo} alt='logo' />
         </a>
       </SidebarHeader>
-      <SidebarContent className='pt-10'>
+      <Separator className='mx-auto my-5 w-[60%] bg-chart-3' />
+      <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
