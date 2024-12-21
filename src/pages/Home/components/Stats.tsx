@@ -1,6 +1,6 @@
 import React from 'react'
-import { Card, CardContent } from '@/components/ui/card'
 import { type LucideProps, Check, Coins, HandCoins, MessageCircle, PiggyBank, TagIcon, TrendingDown, TrendingUp } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
 
 const stats = [
   { title: 'CONSULTATIONS', value: 24, increase: 15, isPositive: true, icon: MessageCircle },

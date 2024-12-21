@@ -1,4 +1,6 @@
 import { Link, useLocation } from 'react-router'
+import { Home, MessageCircle, Settings, Users } from 'lucide-react'
+
 import {
   Sidebar as ShadcnSidebar,
   SidebarContent,
@@ -12,8 +14,6 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
-import { Home, MessageCircle, Settings, Users } from 'lucide-react'
-
 import logo from '@/assets/logo.svg'
 
 const items = [

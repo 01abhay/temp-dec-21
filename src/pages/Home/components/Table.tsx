@@ -17,9 +17,8 @@ import {
 import { ArrowUpDown, ArrowUpRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import Section from '@/components/app/Section'
 import { Table as ShadcnTable, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-
+import Section from '@/components/app/Section'
 import { type Product, products } from '../data'
 
 interface DataTableProps<TData, TValue> {

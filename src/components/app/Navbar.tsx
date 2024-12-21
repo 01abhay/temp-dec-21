@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router'
+import { PieChart, TagIcon, MessageCircle } from 'lucide-react'
+
 import { cn } from '@/lib/utils'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
-import { PieChart, TagIcon, MessageCircle } from 'lucide-react'
 
 function Navbar() {
   return (

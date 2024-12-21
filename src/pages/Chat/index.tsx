@@ -3,12 +3,12 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { LoaderCircle, Send } from 'lucide-react'
+
 import { cn } from '@/lib/utils'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import Section from '@/components/app/Section'
-
 import { sendMessage } from './api'
 
 const initialMessages = [{ id: 1, sender: 'bot', message: 'Hi, how can I help you today?' }]

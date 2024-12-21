@@ -1,8 +1,8 @@
 import { Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, ComposedChart, ResponsiveContainer, BarChart } from 'recharts'
-import { getRandomInt } from '@/lib/utils'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChartNoAxesColumn, MessageCircle, TrendingUp } from 'lucide-react'
 
+import { getRandomInt } from '@/lib/utils'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import pulseBg from '@/assets/images/pulse-bg.svg'
 
 function Charts() {
