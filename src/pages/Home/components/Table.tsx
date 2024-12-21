@@ -9,6 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination'
+import { Link } from 'react-router'
 
 const products = [
   {
@@ -82,10 +83,10 @@ function Table() {
               <TableCell>${product.orderValue}</TableCell>
               <TableCell className='font-semibold'>${product.commission}</TableCell>
               <TableCell className='text-right'>
-                <a href={`/chat`} className='inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground'>
+                <Link to='/chat' className='inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground'>
                   View Chat
                   <ArrowUpRight className='h-4 w-4' />
-                </a>
+                </Link>
               </TableCell>
             </TableRow>
           ))}

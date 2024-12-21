@@ -1,12 +1,8 @@
+import React from 'react'
+import { NavLink } from 'react-router'
 import { cn } from '@/lib/utils'
 import { SidebarTrigger } from '@/components/ui/sidebar'
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu'
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 import { PieChart, TagIcon, MessageCircle } from 'lucide-react'
 
 function Navbar() {
@@ -16,24 +12,26 @@ function Navbar() {
         <NavigationMenuItem className='md:hidden'>
           <SidebarTrigger />
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink className={cn(navigationMenuTriggerStyle() + ' gap-2 rounded-full')} href='#' active>
-            <PieChart size={20} />
-            <span>Summary</span>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink className={cn(navigationMenuTriggerStyle() + ' gap-2 rounded-full text-muted-foreground')} href='#'>
-            <TagIcon size={20} />
-            <span>Sales</span>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink className={cn(navigationMenuTriggerStyle() + ' gap-2 rounded-full text-muted-foreground')} href='#'>
-            <MessageCircle size={20} />
-            <span>Chat</span>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
+
+        {[
+          { name: 'Summary', icon: PieChart, path: '/' },
+          { name: 'Sales', icon: TagIcon, path: '/sales' },
+          { name: 'Chat', icon: MessageCircle, path: '/chat' },
+        ].map(({ name, icon, path }) => (
+          <NavigationMenuItem key={name}>
+            <NavLink
+              to={path}
+              className={({ isActive }) =>
+                cn(
+                  navigationMenuTriggerStyle({ className: 'h-12 gap-2 rounded-full' }),
+                  isActive ? 'pointer-events-none bg-accent' : 'text-muted-foreground hover:bg-muted',
+                )
+              }>
+              {React.createElement(icon, { size: 18 })}
+              <span>{name}</span>
+            </NavLink>
+          </NavigationMenuItem>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   )

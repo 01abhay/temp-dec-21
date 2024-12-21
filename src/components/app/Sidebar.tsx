@@ -1,3 +1,4 @@
+import { Link, useLocation } from 'react-router'
 import {
   Sidebar as ShadcnSidebar,
   SidebarContent,
@@ -17,12 +18,12 @@ import logo from '@/assets/logo.svg'
 const items = [
   {
     title: 'Home',
-    url: '#',
+    url: '/',
     icon: Home,
   },
   {
     title: 'Chat',
-    url: '#',
+    url: '/chat',
     icon: MessageCircle,
   },
   {
@@ -39,6 +40,8 @@ const items = [
 ]
 
 function Sidebar() {
+  const location = useLocation()
+
   return (
     <ShadcnSidebar collapsible='icon'>
       <SidebarHeader>
@@ -51,13 +54,13 @@ function Sidebar() {
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className='gap-4'>
-              {items.slice(0, -1).map((item, i) => (
+              {items.slice(0, -1).map(item => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild isActive={i === 0}>
-                    <a href={item.url}>
+                  <SidebarMenuButton asChild isActive={location.pathname === item.url}>
+                    <Link to={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
