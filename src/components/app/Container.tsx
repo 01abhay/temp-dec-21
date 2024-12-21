@@ -1,13 +1,13 @@
-type ContainerProps = {
-  title?: string
-  children?: React.ReactNode
-}
-function Container({ title, children }: ContainerProps) {
-  return (
-    <div className='container mx-auto rounded-2xl border p-6'>
-      {title && <h2 className='mb-9 mt-2 text-3xl'>{title}</h2>}
+import React from 'react'
 
-      {children}
+type ContainerProps = {
+  children: React.ReactNode
+}
+
+function Container({ children }: ContainerProps) {
+  return (
+    <div className='px-1'>
+      <div className='container mx-auto rounded-2xl border p-6'>{children}</div>
     </div>
   )
 }
